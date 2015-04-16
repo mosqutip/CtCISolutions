@@ -139,6 +139,66 @@ namespace CtCISolutions
         }
     }
 
+    /*
+    Question:    1.8
+    Arguments:   Two pointers to character arrays
+    Returns:     Boolean
+    Description: Given a string input, determine if a second 
+                 string input is a rotation of the first input
+    Assumptions: None
+    */
+    bool IsStringRotation(char* str1, char* str2, bool cpp)
+    {
+        if (strlen(str1) != strlen(str2))
+        {
+            return false;
+        }
+
+        if (cpp)
+        {
+            return IsStringRotationpp(str1, str2);
+        }
+
+        bool is_rotation = false;
+        int bufferSize = ((strlen(str1) * 2) + 1);
+        char* buffer = (char*)malloc(bufferSize * sizeof(char));
+
+        memset(buffer, 1, (bufferSize * sizeof(char)));
+        strcpy_s(buffer, bufferSize, str1);
+        strcat_s(buffer, bufferSize, str1);
+        buffer[strlen(buffer)] = '\0';
+
+        if (strstr(buffer, str2) != NULL)
+        {
+            is_rotation = true;
+        }
+
+        free(buffer);
+
+        return is_rotation;
+    }
+
+    /*
+    Question:    1.8 (alternate solution using string)
+    Arguments:   Two pointers to character arrays
+    Returns:     Boolean
+    Description: Given a string input, determine if a second
+    string input is a rotation of the first input
+    Assumptions: None
+    */
+    bool IsStringRotationpp(char* str1, char* str2)
+    {
+        string str = str1;
+        str += str1;
+
+        if (str.find(str2) != -1)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     void AllCharactersUniqueTest()
     {
         char* str1 = "!?abcdefghijklmnopqrstuvwxyz.,\0";
@@ -175,5 +235,15 @@ namespace CtCISolutions
         cout << "String: \"" << str2 << "\" with spaces url-encoded is: \"";
         UrlEncodeSpaces(str1, str2);
         cout << str1 << "\"." << endl;
+    }
+
+    void IsStringRotationTest(bool cpp)
+    {
+        char* str1 = "waterbottle\0";
+        char* str2 = "ottlewaterb\0";
+        char* str3 = "rotation\0";
+
+        cout << "Is string: \"" << str2 << "\" a rotation of string: \"" << str1 << "\"? " << (IsStringRotation(str1, str2, cpp) ? "Yes!" : "No!") << endl;
+        cout << "Is string: \"" << str3 << "\" a rotation of string: \"" << str1 << "\"? " << (IsStringRotation(str1, str3, cpp) ? "Yes!" : "No!") << endl;
     }
 };

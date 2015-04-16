@@ -8,6 +8,7 @@ void main()
     ReverseStringTest();
     IsStringPermutationTest();
     UrlEncodeSpacesTest();
+    IsStringRotationTest(false);
 
     int x;
     cin >> x;
