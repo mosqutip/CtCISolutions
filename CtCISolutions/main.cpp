@@ -9,6 +9,8 @@ void main()
     IsStringPermutationTest();
     UrlEncodeSpacesTest();
     IsStringRotationTest(false);
+    CompressStringTest();
+    RotateMatrixTest();
 
     int x;
     cin >> x;

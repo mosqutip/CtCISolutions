@@ -140,6 +140,139 @@ namespace CtCISolutions
     }
 
     /*
+    Question:    1.5
+    Arguments:   Pointer to character array
+    Returns:     Pointer to character array
+    Description: Given a string input, compress the string by replacing
+                 repeated sequences of characters with the character an
+                 integer count. If the compressed string would be longer
+                 than the original, return the original string instead.
+    Assumptions: None
+    */
+    char* CompressString(char* str)
+    {
+        char* ptr = str;
+        char current = *ptr++;
+        int char_count = 1, sum = 0;
+
+        while (*ptr)
+        {
+            if (*ptr == current)
+            {
+                char_count++;
+            }
+            else
+            {
+                sum += (1 + (to_string(char_count).length()));
+                char_count = 1;
+                current = *ptr;
+            }
+
+            ++ptr;
+        }
+
+        sum += (1 + (to_string(char_count).length()));
+
+        if (sum > (int)strlen(str))
+        {
+            return str;
+        }
+        else
+        {
+            ptr = str;
+            current = *ptr++;
+            char_count = 1;
+            int index = 0;
+
+            char* compressed_str = (char*)malloc((sum + 1) * sizeof(char));
+            memset(compressed_str, 0, (sum * sizeof(char)));
+
+            while (*ptr)
+            {
+                if (*ptr == current)
+                {
+                    char_count++;
+                }
+                else
+                {
+                    compressed_str[index] = current;
+                    ++index;
+
+                    for (char c : to_string(char_count))
+                    {
+                        compressed_str[index] = c;
+                        ++index;
+                    }
+
+                    char_count = 1;
+                    current = *ptr;
+                }
+
+                ++ptr;
+            }
+
+            compressed_str[index] = current;
+            ++index;
+
+            for (char c : to_string(char_count))
+            {
+                compressed_str[index] = c;
+                ++index;
+            }
+
+            compressed_str[index] = '\0';
+
+            return compressed_str;
+        }
+    }
+
+    /*
+    Question:    1.6
+    Arguments:   Pointer to array of integer pointers
+    Returns:     <void>
+    Description: Given a matrix (represented as a two-dimensional
+                 array), rotate the matrix by 90 degrees.
+    Assumptions: None
+    */
+    void RotateMatrix(int** matrix, int width)
+    {
+        for (int i = 0; i < (width / 2); ++i)
+        {
+            int start = i, end = (width - 1 - i);
+
+            for (int j = start; j < end; ++j)
+            {
+                int k = (end - (j - start));
+                int top_val = matrix[start][j];
+
+                matrix[start][j] = matrix[k][start];
+                matrix[k][start] = matrix[end][k];
+                matrix[end][k] = matrix[j][end];
+                matrix[j][end] = top_val;
+            }
+        }
+    }
+
+    /* Helper method to print out matrices for Question 1.6 */
+    void PrintMatrix(int** matrix, int width)
+    {
+        for (int i = 0; i < width; ++i)
+        {
+            for (int j = 0; j < width; ++j)
+            {
+                if (j == 3)
+                {
+                    printf("%d\n", matrix[i][j]);
+                }
+                else
+                {
+                    printf("%d%s", matrix[i][j], ", ");
+                }
+            }
+        }
+    }
+
+    /*
     Question:    1.8
     Arguments:   Two pointers to character arrays
     Returns:     Boolean
@@ -163,10 +296,9 @@ namespace CtCISolutions
         int bufferSize = ((strlen(str1) * 2) + 1);
         char* buffer = (char*)malloc(bufferSize * sizeof(char));
 
-        memset(buffer, 1, (bufferSize * sizeof(char)));
-        strcpy_s(buffer, bufferSize, str1);
+        memset(buffer, 0, (bufferSize * sizeof(char)));
         strcat_s(buffer, bufferSize, str1);
-        buffer[strlen(buffer)] = '\0';
+        strcat_s(buffer, bufferSize, str1);
 
         if (strstr(buffer, str2) != NULL)
         {
@@ -245,5 +377,30 @@ namespace CtCISolutions
 
         cout << "Is string: \"" << str2 << "\" a rotation of string: \"" << str1 << "\"? " << (IsStringRotation(str1, str2, cpp) ? "Yes!" : "No!") << endl;
         cout << "Is string: \"" << str3 << "\" a rotation of string: \"" << str1 << "\"? " << (IsStringRotation(str1, str3, cpp) ? "Yes!" : "No!") << endl;
+    }
+
+    void CompressStringTest()
+    {
+        char* str1 = "aabbbbbcddddeeffffffzzzzzzzzzzgggghijkllll\0";
+        char* str2 = "abcdefg\0";
+        char* str3 = "1111111111111111111111111111111111111111\0";
+
+        cout << "String: \"" << str1 << "\" in compressed form is: \"" << CompressString(str1) << "\"." << endl;
+        cout << "String: \"" << str2 << "\" in compressed form is: \"" << CompressString(str2) << "\"." << endl;
+        cout << "String: \"" << str3 << "\" in compressed form is: \"" << CompressString(str3) << "\"." << endl;
+    }
+
+    void RotateMatrixTest()
+    {
+        int* matrix[4] = { new int[] { 1, 2, 3, 4 },
+                           new int[] { 5, 6, 7, 8 },
+                           new int[] { 9, 10, 11, 12 },
+                           new int[] { 13, 14, 15, 16 } };
+
+        cout << "Matrix: " << endl;
+        PrintMatrix(matrix, 4);
+        cout << endl << "rotated 90 degrees is: " << endl;
+        RotateMatrix(matrix, 4);
+        PrintMatrix(matrix, 4);
     }
 };
