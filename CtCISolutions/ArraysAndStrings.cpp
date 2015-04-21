@@ -253,14 +253,42 @@ namespace CtCISolutions
         }
     }
 
-    /* Helper method to print out matrices for Question 1.6 */
-    void PrintMatrix(int** matrix, int width)
+    void ZeroMatrixRowAndColumn(int** matrix, int rows, int cols)
     {
-        for (int i = 0; i < width; ++i)
+        vector<bool> *zeros = new vector<bool>();
+
+        for (int i = 0; i < rows; i++)
         {
-            for (int j = 0; j < width; ++j)
+            for (int j = 0; j < cols; j++)
             {
-                if (j == 3)
+                (matrix[i][j] == 0) ? zeros->push_back(1) : zeros->push_back(0);
+            }
+        }
+
+        for (vector<bool>::iterator it = zeros->begin(); it != zeros->end(); ++it)
+        {
+            if (*it == 1)
+            {
+                int row = ((it - zeros->begin()) / cols);
+                int col = ((it - zeros->begin()) % cols);
+
+                for (int i = 0; i < cols; ++i)
+                {
+                    matrix[row][i] = 0;
+                    matrix[i][col] = 0;
+                }
+            }
+        }
+    }
+
+    /* Helper method to print out matrices for questions 1.6 and 1.7 */
+    void PrintMatrix(int** matrix, int rows, int cols)
+    {
+        for (int i = 0; i < rows; ++i)
+        {
+            for (int j = 0; j < cols; ++j)
+            {
+                if (j == (cols - 1))
                 {
                     printf("%d\n", matrix[i][j]);
                 }
@@ -392,15 +420,35 @@ namespace CtCISolutions
 
     void RotateMatrixTest()
     {
-        int* matrix[4] = { new int[] { 1, 2, 3, 4 },
-                           new int[] { 5, 6, 7, 8 },
-                           new int[] { 9, 10, 11, 12 },
-                           new int[] { 13, 14, 15, 16 } };
+        int* matrix[4] = { 
+            new int[] { 1, 2, 3, 4 },
+            new int[] { 5, 6, 7, 8 },
+            new int[] { 9, 10, 11, 12 },
+            new int[] { 13, 14, 15, 16 }
+        };
 
         cout << "Matrix: " << endl;
-        PrintMatrix(matrix, 4);
+        PrintMatrix(matrix, 4, 4);
         cout << endl << "rotated 90 degrees is: " << endl;
         RotateMatrix(matrix, 4);
-        PrintMatrix(matrix, 4);
+        PrintMatrix(matrix, 4, 4);
+        cout << endl;
+    }
+
+    void ZeroMatrixRowAndColumnTest()
+    {
+        int* matrix[4] = {
+            new int[] { 1, 2, 3, 4 },
+            new int[] { 5, 6, 0, 8 },
+            new int[] { 9, 10, 11, 12 },
+            new int[] { 13, 14, 15, 16 }
+        };
+
+        cout << "Matrix: " << endl;
+        PrintMatrix(matrix, 4, 4);
+        cout << endl << "with zeroed rows and columns is: " << endl;
+        ZeroMatrixRowAndColumn(matrix, 4, 4);
+        PrintMatrix(matrix, 4, 4);
+        cout << endl;
     }
 };

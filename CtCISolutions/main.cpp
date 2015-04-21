@@ -11,6 +11,7 @@ void main()
     IsStringRotationTest(false);
     CompressStringTest();
     RotateMatrixTest();
+    ZeroMatrixRowAndColumnTest();
 
     int x;
     cin >> x;

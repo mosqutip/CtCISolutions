@@ -1,12 +1,13 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
 namespace CtCISolutions
 {
     /* CHAPTER 1: ARRAYS AND STRINGS */
-    // Methods for questions
+    // Solutions
     bool AllCharactersUnique(char *str);
     void ReverseString(char *str);
     bool IsStringPermutation(char *str1, char *str2);
@@ -15,6 +16,7 @@ namespace CtCISolutions
     bool IsStringRotation(char* str1, char* str2, bool cpp);
     bool IsStringRotationpp(char* str1, char* str2);
     void RotateMatrix(int** matrix, int width);
+    void ZeroMatrixRowAndColumn(int** matrix);
 
     // Test cases
     void AllCharactersUniqueTest();
@@ -24,6 +26,7 @@ namespace CtCISolutions
     void CompressStringTest();
     void IsStringRotationTest(bool cpp);
     void RotateMatrixTest();
+    void ZeroMatrixRowAndColumnTest();
 
     /* CHAPTER 2: LINKED LISTS */
 };
