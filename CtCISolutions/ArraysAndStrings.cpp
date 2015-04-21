@@ -146,7 +146,7 @@ namespace CtCISolutions
     Description: Given a string input, compress the string by replacing
                  repeated sequences of characters with the character an
                  integer count. If the compressed string would be longer
-                 than the original, return the original string instead.
+                 than the original, return the original string instead
     Assumptions: None
     */
     char* CompressString(char* str)
@@ -228,10 +228,10 @@ namespace CtCISolutions
 
     /*
     Question:    1.6
-    Arguments:   Pointer to array of integer pointers
+    Arguments:   Pointer to array of integer pointers, integer matrix dimension
     Returns:     <void>
-    Description: Given a matrix (represented as a two-dimensional
-                 array), rotate the matrix by 90 degrees.
+    Description: Given a square matrix (represented as a two-
+                 dimensional array), rotate the matrix by 90 degrees
     Assumptions: None
     */
     void RotateMatrix(int** matrix, int width)
@@ -253,6 +253,15 @@ namespace CtCISolutions
         }
     }
 
+    /*
+    Question:    1.7
+    Arguments:   Pointer to array of integer pointers, integer number
+                 of matrix rows, integer number of matrix columns
+    Returns:     <void>
+    Description: Given a matrix (represented as a two-dimensional array),
+                 zero out all rows and columns containing a zero.
+    Assumptions: None
+    */
     void ZeroMatrixRowAndColumn(int** matrix, int rows, int cols)
     {
         vector<bool> *zeros = new vector<bool>();
