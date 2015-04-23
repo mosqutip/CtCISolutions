@@ -352,7 +352,7 @@ namespace CtCISolutions
     Arguments:   Two pointers to character arrays
     Returns:     Boolean
     Description: Given a string input, determine if a second
-    string input is a rotation of the first input
+                 string input is a rotation of the first input
     Assumptions: None
     */
     bool IsStringRotationpp(char* str1, char* str2)

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <bitset>
 
 using namespace std;
 
@@ -29,4 +30,11 @@ namespace CtCISolutions
     void ZeroMatrixRowAndColumnTest();
 
     /* CHAPTER 2: LINKED LISTS */
+
+    /* CHAPTER 6: BIT MANIPULATION */
+    // Solutions
+    int InsertBitSubsequence(int n1, int n2, short i, short j);
+
+    // Test cases
+    void InsertBitSubsequenceTest();
 };
