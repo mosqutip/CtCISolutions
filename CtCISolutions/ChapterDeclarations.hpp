@@ -34,7 +34,9 @@ namespace CtCISolutions
     /* CHAPTER 6: BIT MANIPULATION */
     // Solutions
     int InsertBitSubsequence(int n1, int n2, short i, short j);
+    int SwapBitIndices(int n);
 
     // Test cases
     void InsertBitSubsequenceTest();
+    void SwapBitIndicesTest();
 };

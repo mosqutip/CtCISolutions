@@ -20,6 +20,7 @@ void main()
             break;
         case 2:
             InsertBitSubsequenceTest();
+            SwapBitIndicesTest();
             break;
         default:
             break;
