@@ -35,8 +35,10 @@ namespace CtCISolutions
     // Solutions
     int InsertBitSubsequence(int n1, int n2, short i, short j);
     int SwapBitIndices(int n);
+	int NumberOfBitsToSwap(int n1, int n2);
 
     // Test cases
     void InsertBitSubsequenceTest();
     void SwapBitIndicesTest();
+	void NumberOfBitsToSwapTest();
 };

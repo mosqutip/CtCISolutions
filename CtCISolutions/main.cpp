@@ -21,6 +21,7 @@ void main()
         case 2:
             InsertBitSubsequenceTest();
             SwapBitIndicesTest();
+			NumberOfBitsToSwapTest();
             break;
         default:
             break;
