@@ -8,18 +8,6 @@ using namespace std;
 namespace CtCISolutions
 {
     /* CHAPTER 1: ARRAYS AND STRINGS */
-    // Solutions
-    bool AllCharactersUnique(char *str);
-    void ReverseString(char *str);
-    bool IsStringPermutation(char *str1, char *str2);
-    void UrlEncodeSpaces(char* str1, char* str2);
-    char* CompressString(char* str);
-    bool IsStringRotation(char* str1, char* str2, bool cpp);
-    bool IsStringRotationpp(char* str1, char* str2);
-    void RotateMatrix(int** matrix, int width);
-    void ZeroMatrixRowAndColumn(int** matrix);
-
-    // Test cases
     void AllCharactersUniqueTest();
     void ReverseStringTest();
     void IsStringPermutationTest();
@@ -28,17 +16,28 @@ namespace CtCISolutions
     void IsStringRotationTest(bool cpp);
     void RotateMatrixTest();
     void ZeroMatrixRowAndColumnTest();
+    /* END CHAPTER 1: ARRAYS AND STRINGS */
+
 
     /* CHAPTER 2: LINKED LISTS */
+    // Linked list node data structure
+    struct Node
+    {
+        int data;
+        Node* next;
+    };
+
+    void RemoveDuplicatesTest();
+    void FindNthToLastNodeTest();
+    void DeleteNodeTest();
+    void SumLinkedListDigitsTest();
+    void IsLinkedListPalindromeTest();
+    /* END CHAPTER 2: LINKED LISTS */
+
 
     /* CHAPTER 6: BIT MANIPULATION */
-    // Solutions
-    int InsertBitSubsequence(int n1, int n2, short i, short j);
-    int SwapBitIndices(int n);
-	int NumberOfBitsToSwap(int n1, int n2);
-
-    // Test cases
     void InsertBitSubsequenceTest();
     void SwapBitIndicesTest();
-	void NumberOfBitsToSwapTest();
+    void NumberOfBitsToSwapTest();
+    /* END CHAPTER 3: BIT MANIPULATION */
 };

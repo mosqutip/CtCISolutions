@@ -50,17 +50,17 @@ namespace CtCISolutions
                  the trivial case where n = 0).
     */
     
-	int NumberOfBitsToSwap(int n1, int n2)
-	{
-		return bitset<32>(n1 ^ n2).count();
-	}
+    int NumberOfBitsToSwap(int n1, int n2)
+    {
+        return bitset<32>(n1 ^ n2).count();
+    }
 
     /*
     Question:    5.6
     Arguments:   An integer
     Returns:     An integer
     Description: Given an integer, flip the bits with even indices to the
-	             values of the bits with odd indices, and vice versa
+                 values of the bits with odd indices, and vice versa
     Assumptions: A 32-bit integer is used
     */
     int SwapBitIndices(int n)
@@ -68,20 +68,20 @@ namespace CtCISolutions
         return (((n & 0xaaaaaaaa) >> 1) | ((n & 0x55555555) << 1));
     }
 
-	void FindMissingNumber(int* nums)
-	{
-		/*
-		0000
-		0001
-		0010
-		0011
-		0100
-		//0101
-		0110
-		0111
-		1000
+    void FindMissingNumber(int* nums)
+    {
+        /*
+        0000
+        0001
+        0010
+        0011
+        0100
+        //0101
+        0110
+        0111
+        1000
         */
-	}
+    }
 
     void InsertBitSubsequenceTest()
     {
@@ -92,13 +92,13 @@ namespace CtCISolutions
         cout << bitset<32>(InsertBitSubsequence(n1, n2, i, j)) << "." << endl;
     }
 
-	void NumberOfBitsToSwapTest()
-	{
-		int n1 = 0x01234567;
-		int n2 = 0x1a2b3c4d;
+    void NumberOfBitsToSwapTest()
+    {
+        int n1 = 0x01234567;
+        int n2 = 0x1a2b3c4d;
 
-		cout << "Converting: " << n1 << " to: " << n2 << " would require flipping: " << NumberOfBitsToSwap(n1, n2) << " bits." << endl;
-	}
+        cout << "Converting: " << n1 << " to: " << n2 << " would require flipping: " << NumberOfBitsToSwap(n1, n2) << " bits." << endl;
+    }
 
     void SwapBitIndicesTest()
     {

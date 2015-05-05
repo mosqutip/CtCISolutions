@@ -310,11 +310,32 @@ namespace CtCISolutions
     }
 
     /*
+    Question:    1.8 (alternate solution using string)
+    Arguments:   Two pointers to character arrays
+    Returns:     Boolean
+    Description: Given a string input, determine if a second
+                 string input is a rotation of the first input
+    Assumptions: None
+    */
+    bool IsStringRotationpp(char* str1, char* str2)
+    {
+        string str = str1;
+        str += str1;
+
+        if (str.find(str2) != -1)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    /*
     Question:    1.8
     Arguments:   Two pointers to character arrays
     Returns:     Boolean
-    Description: Given a string input, determine if a second 
-                 string input is a rotation of the first input
+    Description: Given a string input, determine if a second
+    string input is a rotation of the first input
     Assumptions: None
     */
     bool IsStringRotation(char* str1, char* str2, bool cpp)
@@ -345,27 +366,6 @@ namespace CtCISolutions
         free(buffer);
 
         return is_rotation;
-    }
-
-    /*
-    Question:    1.8 (alternate solution using string)
-    Arguments:   Two pointers to character arrays
-    Returns:     Boolean
-    Description: Given a string input, determine if a second
-                 string input is a rotation of the first input
-    Assumptions: None
-    */
-    bool IsStringRotationpp(char* str1, char* str2)
-    {
-        string str = str1;
-        str += str1;
-
-        if (str.find(str2) != -1)
-        {
-            return true;
-        }
-
-        return false;
     }
 
     void AllCharactersUniqueTest()

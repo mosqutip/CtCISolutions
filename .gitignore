@@ -45,5 +45,8 @@ Temporary Items
 # Visual Studio files
 *.suo
 *.sdf
+*.opensdf
+
+# Visual Studio directories
 Debug/
 CtCISolutions/Debug/

@@ -67,6 +67,7 @@
   <ItemGroup>
     <ClCompile Include="ArraysAndStrings.cpp" />
     <ClCompile Include="BitManipulation.cpp" />
+    <ClCompile Include="LinkedLists.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

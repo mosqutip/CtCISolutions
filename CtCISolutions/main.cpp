@@ -19,9 +19,16 @@ void main()
             ZeroMatrixRowAndColumnTest();
             break;
         case 2:
+            RemoveDuplicatesTest();
+            FindNthToLastNodeTest();
+            DeleteNodeTest();
+            SumLinkedListDigitsTest();
+            IsLinkedListPalindromeTest();
+            break;
+        case 5:
             InsertBitSubsequenceTest();
             SwapBitIndicesTest();
-			NumberOfBitsToSwapTest();
+            NumberOfBitsToSwapTest();
             break;
         default:
             break;
